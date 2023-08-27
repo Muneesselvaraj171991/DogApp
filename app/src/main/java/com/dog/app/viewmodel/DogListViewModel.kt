@@ -37,18 +37,14 @@ class DogListViewModel : ViewModel() {
             mRemoteCall.getDogList(object : RemoteCall.Result {
                 override fun onResponse(dogList: List<Dog>) {
                     mDogListLivedata.postValue(dogList)
-
                 }
-
                 override fun onFailure() {
                     mDogListLivedata.postValue(emptyList())
-
                     mIsSomethingWentWrong = true
                 }
 
                 override fun onFetchedAllData() {
                     mDogListLivedata.postValue(emptyList())
-
                     mIsSomethingWentWrong = false
                 }
 

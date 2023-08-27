@@ -8,8 +8,9 @@ import java.net.URL
 
 class RemoteCall private constructor() {
     private  var mDogNameList: List<String>? = null
-    private var mDogList: ArrayList<Dog> = ArrayList()
+    private var mDogImageList: ArrayList<Dog> = ArrayList()
 
+    // Dog name list api
     fun getDogNameList(myCallback: (result: Boolean) -> Unit) {
         if (mDogNameList==null) {
             val url = URL("$URL/breeds/list/all")
@@ -39,13 +40,14 @@ class RemoteCall private constructor() {
         return indexWithThreshold+index
     }
 
+    //dog image fetching api, fetching 20 item on each call to achieve pagination.
     fun getDogList(result: Result, index: Int) {
         var startIndex = index
 
         val endIndex = findValidIndex(index)
         if(endIndex < mDogNameList!!.size) {
             //Return cached list if requested "endIndex" is less than mdoglist to avoid frequent api call.
-            if(endIndex>mDogList.size) {
+            if(endIndex>mDogImageList.size) {
             for (pos in startIndex until endIndex) {
                 val dogName = mDogNameList!![pos]
                 val imageUrl =  "$URL/breed/$dogName/images/random"
@@ -56,10 +58,10 @@ class RemoteCall private constructor() {
                     val dogList = JSONObject(data)
                     val findSubBreed =dogName.split("/").toTypedArray()
                     if(findSubBreed.size == 2) {
-                        mDogList.add(Dog(dogName, findSubBreed[1], dogList.getString("message")))
+                        mDogImageList.add(Dog(dogName, findSubBreed[1], dogList.getString("message")))
 
                     } else {
-                        mDogList.add(Dog(dogName, "NA", dogList.getString("message")))
+                        mDogImageList.add(Dog(dogName, "NA", dogList.getString("message")))
 
                     }
                 } catch (e: Exception) {
@@ -68,7 +70,7 @@ class RemoteCall private constructor() {
                 }
             }
             }
-            result.onResponse(mDogList)
+            result.onResponse(mDogImageList)
         } else {
             result.onFetchedAllData()
         }
@@ -85,7 +87,6 @@ class RemoteCall private constructor() {
         val remoteCallInstance: RemoteCall
             get() {
                 if (sRemoteCall == null) {
-
                     sRemoteCall = RemoteCall()
                 }
                 return sRemoteCall!!

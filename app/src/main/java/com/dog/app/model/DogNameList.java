@@ -16,10 +16,7 @@ public DogNameList(JSONObject data) {
 public List<String> getDogList() {
     return mDogList;
 }
-
-
     private   void parseResponse(JSONObject data) {
-
         if (data != null) {
             Iterator<String> it = data.keys();
             while (it.hasNext()) {
@@ -53,6 +50,4 @@ public List<String> getDogList() {
             }
         }
     }
-
-
 }

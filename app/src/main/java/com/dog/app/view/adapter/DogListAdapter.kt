@@ -13,8 +13,6 @@ class DogListAdapter(
     private val mItemClickListener: ItemClick
 ) : RecyclerView.Adapter<DogListAdapter.ItemViewHolder>() {
     private val mDiffer: AsyncListDiffer<Dog> = AsyncListDiffer<Dog>(this, DIFF_CALLBACK)
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
@@ -29,8 +27,6 @@ class DogListAdapter(
     fun submitList(list: List<Dog?>?) {
         mDiffer.submitList(list)
     }
-
-
     override fun getItemCount(): Int {
         return mDiffer.currentList.size
     }
@@ -40,8 +36,6 @@ class DogListAdapter(
     }
 
     inner class ItemViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root)
-
-
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Dog>() {
             override fun areItemsTheSame(oldItem: Dog, newItem: Dog) =
