@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="spacing_xmlarge">40dp</dimen>
+    <dimen name="text_size">24sp</dimen>
+    <dimen name="margin_top">40dp</dimen>
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="margin16dp">16dp</dimen>
+    <dimen name="text_medium_size">16sp</dimen>
+    <dimen name="size0dp">0dp</dimen>
+    <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="drawable_pading_10dp">10dp</dimen>
+    <dimen name="width_160dp">160dp</dimen>
+
+
+</resources>

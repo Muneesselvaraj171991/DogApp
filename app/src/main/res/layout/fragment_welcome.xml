@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--Unfortunately, could not find dog_nose image in svg  -->
+    <TextView
+        android:id="@+id/textview_buddy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/dog_nose"
+        android:drawablePadding="@dimen/drawable_pading_10dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/buddy"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView_dog"
+        android:layout_width="@dimen/width_160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_buddy" />
+
+
+    <TextView
+        android:id="@+id/textView_hi_pal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginBottom="@dimen/margin8dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/hi_pal"
+        android:textAlignment="center"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        android:transitionName="logo_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_dog" />
+
+    <TextView
+        android:id="@+id/textView_new_family"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin8dp"
+        android:gravity="center"
+        android:text="@string/new_family"
+        android:textAlignment="center"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_medium_size"
+        android:transitionName="logo_text"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_hi_pal" />
+
+
+    <Button
+        android:id="@+id/btn_Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_24dp"
+        android:background="@drawable/layout_background"
+        android:contentDescription="@string/click"
+        android:text="@string/woof"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_medium_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
